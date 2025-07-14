@@ -4,8 +4,16 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).send("Hello world. I'm Gia bao");
+});
+
+app.get("/user", (req, res) => {
+  res.status(200).send("Page User");
+});
+
+app.use((req, res) => {
+  res.status(404).send("404 Not Found");
 });
 
 app.listen(PORT, function (err) {

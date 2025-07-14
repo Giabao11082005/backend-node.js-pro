@@ -30,7 +30,6 @@ code .
 ```bash
   npm init -y                     #Khởi tạo package.json
   npm install express             #Cài Express
-  npm install --save-dev nodemon  #Hỗ trợ chạy tự động không bật lại server
 ```
 
 ### Bước 3: Cài TypeScript và type hỗ trợ
@@ -66,6 +65,49 @@ file package.json thêm đoạn mã sau:
   "build": "tsc" }
 
 ```
+
+### Bước 6: Cấu hình nodemon cho môi trường devDependence
+
+Tải **nodemon và ts-node**
+
+```bash
+npm install --save-dev nodemon@x.x.x #không cần reload server
+npm install --save-dev ts-node@x.x.x #dịch code trực tiếp không cần direction dist
+#x.x.x là phiên bản cần cài trong npm
+```
+
+Tiếp tục cấu hình nodemon trong package.json:
+
+```bash
+"nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts",
+    "ignore": [
+      "node_modules"
+    ],
+    "exec": "ts-node ./src/app.ts"
+```
+
+Sau khi làm xong thay đổi script trong package.json và chạy lại dự án:
+
+```bash
+"start": "nodemon",
+"dev": "nodemon"
+```
+
+## **_npm run dev_**
+
+### Bước 7: Cấu hình biến môi trường
+
+Tải biến môi trường và import vào app.ts:
+
+```bash
+npm install dotenv
+```
+
+Sau khi tải xong import app.ts: **_require("dotenv").config()_**
 
 ---
 
