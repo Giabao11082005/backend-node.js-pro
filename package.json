@@ -1,0 +1,22 @@
+{
+  "name": "backend-nodejs-pro",
+  "version": "1.0.0",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node dist/app.js",
+    "dev": "tsc && node dist/app.js"
+  },
+  "keywords": [],
+  "author": "Hoang Gia Bao",
+  "license": "ISC",
+  "description": "nodejs express javascript mongodb sql",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.13",
+    "typescript": "^5.8.3"
+  }
+}
