@@ -1,20 +1,25 @@
 // const express = require("express");
 import express from "express";
 require("dotenv").config();
+import webRoutes from "./routes/web";
+import { join } from "path";
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.status(200).send("Hello world. I'm Gia bao");
-});
+//config template engine
+app.set("view engine", "ejs");
+app.set("views", __dirname + "/views");
 
-app.get("/user", (req, res) => {
-  res.status(200).send("Page User");
-});
+//config static file
+app.use(express.static("public"));
 
-app.use((req, res) => {
-  res.status(404).send("404 Not Found");
-});
+//config json req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//config routes
+webRoutes(app);
 
 app.listen(PORT, function (err) {
   if (err) console.log("Error when start server: ", err);

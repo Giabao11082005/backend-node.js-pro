@@ -111,6 +111,17 @@ Sau khi tải xong import app.ts: **_require("dotenv").config()_**
 
 ---
 
+## Code dự án:
+
+### Step 1: Template engine (EJS)
+
+```bash
+npm install ejs@x.x.x
+npm install --save-dev @types/ejs@x.x.x
+```
+
+---
+
 ### Chạy dự án:
 
 **npm run dev**
