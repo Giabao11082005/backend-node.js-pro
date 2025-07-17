@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach to Nodemon",
+      "type": "node",
+      "request": "attach",
+      "port": 9299,
+      "restart": true,
+      "protocol": "inspector",
+      "timeout": 10000
+    },
+    {
+      "name": "Start with Nodemon",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "nodemon",
+      "runtimeArgs": [
+        "--inspect=9299",
+        "-e",
+        "ts,tsx",
+        "--exec",
+        "ts-node",
+        "src/app.ts"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Debug",
+      "configurations": ["Start with Nodemon", "Attach to Nodemon"]
+    }
+  ]
+}

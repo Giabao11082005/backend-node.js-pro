@@ -3,6 +3,7 @@ import express from "express";
 require("dotenv").config();
 import webRoutes from "./routes/web";
 import { join } from "path";
+import getConnection from "./config/database";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
